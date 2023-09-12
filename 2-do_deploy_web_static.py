@@ -21,7 +21,7 @@ def do_deploy(archive_path):
             # upload archive
             put(archive_path, '/tmp/')
 
-            # crate target dir
+            # create target dir
             timestamp = archive_path[-18:-4]
             run('sudo mkdir -p /data/web_static/\
 releases/web_static_{}/'.format(timestamp))
@@ -49,8 +49,8 @@ web_static_{}/web_static'
             # re-establish symbolic link
             run('sudo ln -s /data/web_static/releases/\
 web_static_{}/ /data/web_static/current'.format(timestamp))
-        except:
-                return False
+    except:
+            return False
 
         # return True on success
         return True
