@@ -65,3 +65,9 @@ class FileStorage:
         if obj in self.__objects:
             del self.__objects[obj]
             self.save()
+
+    def close(self):
+        """
+        Dispose of current session if active
+        """
+        self.session.remove()
